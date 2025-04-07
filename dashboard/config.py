@@ -277,7 +277,7 @@ MAP_CATEGORIES_ECB_INDICADORS_URLS = {
 MAP_CATEGORIES_ECB_INDICADORS = {
 
     "GDP and expenditure components": [
-        "Private final consumption", "Gross fixed capital formation", "Government final consumption",
+        "Private final consumption", "Government final consumption",
         "Imports of goods and service", "Exports of goods and services", "Gross domestic product at market prices"
     ],
 
@@ -302,16 +302,10 @@ MAP_CATEGORIES_ECB_INDICADORS = {
         ],
 
     "Government finance statistics": [
-        "Government deficit(-) or surplus(+) (as percentage of GDP)",
-        "Government primary deficit(-) or surplus(+) (as percentage of GDP)",
-        "Government debt (consolidated) (as percentage of GDP)"],
+        "Government deficit(-) or surplus(+) (as % of GDP)",
+        "Government primary deficit(-) or surplus(+) (as % of GDP)",
+        "Government debt (consolidated) (as % of GDP)"],
 
-    "Labour market indicators": [
-        "Gross fixed capital formation",
-        "CPI (Consumer Price Index) MA12",
-        "Unemployment rate",
-        "Labour Productivity (per persons)",
-        ]
 }
 
 MAP_OTHER_BPSTAT_INDICATORS = {
@@ -354,3 +348,51 @@ medium_all_columns = ['Capital ratio-Medium-%',
        'EBITDA (% turnover )-Medium',
        'Financial pressure-Medium-%',
        'Current ratio-Medium-%']
+
+
+container_style_html = """
+    <style>
+        .gpt-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .gpt-button {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .gpt-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #5e7cea, #9d68e1);
+        }
+        .gpt-textarea {
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            padding: 15px;
+            font-size: 16px;
+        }
+        .gpt-toggle {
+            margin: 15px 0;
+        }
+        .gpt-response {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 5px solid #6e8efb;
+        }
+    </style>"""
