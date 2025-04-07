@@ -106,7 +106,7 @@ with tab0:
     show_visao_geral_tab()
 
 with tab1:
-    pass
+    plot_pca_results(df_medium_ldp)
 
 with tab2:
     show_macrodata_tab(

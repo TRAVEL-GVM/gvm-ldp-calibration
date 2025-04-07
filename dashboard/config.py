@@ -330,7 +330,8 @@ ldp_sectors = ['All', 'Agricult & fishing', 'Mining and quarrying', 'Manufacturi
                'Construction', 'Trade', 'Transport and storage', 'Hotels and similar', 'Information and communication', 'Real estate', 
                'Administrative activities', 'Education', 'Health and social', 'Shows and sports', 'Professional and scientific']
 
-medium_all_columns = ['Capital ratio-Medium-%',
+medium_all_columns = ['Date', 
+       'Capital ratio-Medium-%',
        'Financial debt (% liabilities)-Medium',
        'Cost of financial debt-Medium-%',
        'GVA (% output)-Medium',

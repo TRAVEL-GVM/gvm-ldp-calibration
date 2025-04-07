@@ -19,11 +19,15 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
     
     st.markdown("""
     <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 5px solid #179297; margin-bottom: 20px;">
-    <h4 style="color: #179297; margin-top: 0;">Overview</h4>
-    <p>Esta análise revela insights importantes.</p>
+    <h4 style="color: #179297; margin-top: 0;">Macroeconomics Overview</h4>
+    <p>This section provides tools to analyze macroeconomic data and identify key trends and relationships. Use the following features to explore the data:</p>
     <ul>
-      <li><strong>Tendências Principais:</strong>...</li>
+    <li><strong>Data Preview:</strong> View the first few rows of the dataset for a quick overview.</li>
+    <li><strong>Time Series Plots:</strong> Generate line plots for selected variables to observe trends over time.</li>
+    <li><strong>Sector Analysis:</strong> Select specific sectors or variables to focus your analysis.</li>
+    <li><strong>Correlation Matrix:</strong> Visualize relationships between variables using a triangular correlation heatmap.</li>
     </ul>
+    <p>These tools are designed to help you uncover patterns and dependencies in the data, enabling better decision-making and insights into macroeconomic trends.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -111,7 +115,7 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
     )
 
     st.markdown(
-        "<p style='font-size: 16px;'>Select the variables you want to include in the plot:</p>",
+        "<p style='font-size: 16px;'>Select the variables you want to include in the plot and correlation matrix:</p>",
         unsafe_allow_html=True
     )
 
