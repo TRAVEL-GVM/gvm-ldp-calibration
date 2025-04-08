@@ -27,14 +27,14 @@ def load_data(ttl=3600*24):
             MAP_OTHER_ECB_INDICATORS["Unemployment rate"]['url'].split("datasets/")[1].split('/')[1] ,
               start_date).rename(columns={''
               'TIME_PERIOD': 'Date',
-              'OBS_VALUE': 'Unemployment rate'})                                                                                                                                            
-        
+              'OBS_VALUE': 'Unemployment rate'}) 
+
         df_labour_prod = extract_data_from_ecb( # quarterly data (start of period)
             MAP_OTHER_ECB_INDICATORS["Labour Productivity (per persons)"]['url'].split("datasets/")[1].split('/')[1],
               start_date).rename(
                 columns={'TIME_PERIOD': 'Date',
-                         'OBS_VALUE': 'Labour Productivity (per persons)'})   
-        
+                         'OBS_VALUE': 'Labour Productivity (per persons)'})  
+
         df_inflation = extract_data_from_bank_pt( # monthly data (end of period)
             MAP_OTHER_BPSTAT_INDICATORS["CPI (Consumer Price Index) MA12"]['url'], None) 
          
@@ -95,26 +95,26 @@ elif company_type == "Large":
 
 # Create tabs for different insights
 tab0, tab1, tab2, tab3, tab4 = st.tabs([
-    "General overview",
-    "Principal Components Analysis", 
+    "General overview", 
     "Macroeconomic data analysis", 
     "BPSTAT data analysis", 
-    "Macroeconomic data vs Risk drivers"
+    "Macroeconomic data vs Risk drivers",
+    "Principal Components Analysis"
 ])
 
 with tab0:
     show_visao_geral_tab(df_unemployment, df_euribors, macro_ecb_data, df_labour_prod, df_inflation, df_ldp, company_type)
 
 with tab1:
-    plot_pca_results(df_medium_ldp)
-
-with tab2:
     show_macrodata_tab(
         macro_ecb_data, df_unemployment, df_labour_prod, df_inflation, df_euribors
     )
 
-with tab3:
+with tab2:
     show_bpstat_tab(df_ldp)
 
-with tab4:
+with tab3:
     show_housing_types_sizes_tab()
+
+with tab4:
+    plot_pca_results(df_medium_ldp)

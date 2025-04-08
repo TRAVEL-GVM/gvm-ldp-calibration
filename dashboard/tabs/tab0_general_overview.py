@@ -189,6 +189,15 @@ def show_visao_geral_tab(unemployment_df, euribors_df, macro_ecb_df, labour_prod
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
+    unemployment_df_ = unemployment_df.copy()
+    unemployment_df_['Date'] = pd.to_datetime(unemployment_df_['Date']).dt.date  
+
+    labour_prod_df_ = labour_prod_df.copy()
+    labour_prod_df_['Date'] = pd.to_datetime(labour_prod_df_["Date"]).dt.date
+
+    ldp_df_ = ldp_df.copy()
+    ldp_df_['Date'] = pd.to_datetime(ldp_df_['Date']).dt.date
+
     with st.expander("Original Macro economic data — Non annual data - Expand to view and download", expanded=True):
 
         col20, col21, col22, col23 = st.columns(4)
@@ -201,9 +210,9 @@ def show_visao_geral_tab(unemployment_df, euribors_df, macro_ecb_df, labour_prod
             """,
                 unsafe_allow_html=True,
             )
-            st.dataframe(unemployment_df, use_container_width=True, hide_index=True)
+            st.dataframe(unemployment_df_, use_container_width=True, hide_index=True)
             st.download_button(label="Download in xlsx format",
-                                data=convert_df_to_excel(unemployment_df),
+                                data=convert_df_to_excel(unemployment_df_),
                                 file_name='cpi.xlsx',
                                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
@@ -227,9 +236,9 @@ def show_visao_geral_tab(unemployment_df, euribors_df, macro_ecb_df, labour_prod
             """,
                 unsafe_allow_html=True,
             )
-            st.dataframe(labour_prod_df, use_container_width=True, hide_index=True)
+            st.dataframe(labour_prod_df_, use_container_width=True, hide_index=True)
             st.download_button(label="Download in xlsx format",
-                                data=convert_df_to_excel(labour_prod_df),
+                                data=convert_df_to_excel(labour_prod_df_),
                                 file_name='labour.xlsx',
                                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
@@ -270,11 +279,12 @@ def show_visao_geral_tab(unemployment_df, euribors_df, macro_ecb_df, labour_prod
             """,
                 unsafe_allow_html=True,
             )
-        
-        st.dataframe(ldp_df, use_container_width=True, hide_index=False)
+        #ldp_ = ldp_df.copy()
+        #ldp_['Date'] = pd.to_datetime(ldp_['Date']).dt.date
+        st.dataframe(ldp_df_, use_container_width=True, hide_index=False)
 
         st.download_button(label="Download in xlsx format",
-                                data=convert_df_to_excel(ldp_df),
+                                data=convert_df_to_excel(ldp_df_),
                                 file_name='ldp.xlsx',
                                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 

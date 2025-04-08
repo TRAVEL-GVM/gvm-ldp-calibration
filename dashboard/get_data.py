@@ -138,6 +138,7 @@ def get_ldp_data(dict_indicator_keys):
 
             df_final = df_final.merge(df_extracted, on='Date', how='left')
 
+    #df_final['Date'] =  pd.to_datetime(df_final['Date']).dt.strftime('%Y-%m-%d')
     return df_final
 
 
