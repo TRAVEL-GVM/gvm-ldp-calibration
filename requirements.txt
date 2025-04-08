@@ -3,6 +3,8 @@ streamlit
 pandas
 scipy
 plotly
+numpy
+matplotlib
 folium
 streamlit_folium
 pyjstat
