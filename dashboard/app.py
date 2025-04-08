@@ -103,7 +103,7 @@ tab0, tab1, tab2, tab3, tab4 = st.tabs([
 ])
 
 with tab0:
-    show_visao_geral_tab()
+    show_visao_geral_tab(df_unemployment, df_euribors, macro_ecb_data, df_labour_prod, df_inflation, df_ldp, company_type)
 
 with tab1:
     plot_pca_results(df_medium_ldp)
