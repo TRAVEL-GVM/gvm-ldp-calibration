@@ -45,6 +45,16 @@ def plot_pca_results(df):
     df_for_pca = df_filtered[df_filtered.columns[1:]]  # remove 'Date'
     st.write("Shape dos dados para PCA:", df_for_pca.shape)
 
+    st.markdown("""
+    <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 5px solid #179297; margin-bottom: 20px;">
+    <ul>
+    <li><strong>Variance Explained Proportion:</strong> Shows the proportion of variance explained by each principal component. It helps identify which components capture the most variability in the dataset.</li>
+    <li><strong>Cumulative Variance Explained:</strong> Displays the cumulative variance explained by the principal components. It indicates how much of the total variance is captured as more components are added, helping to decide the optimal number of components to retain.</li>
+    <li><strong>Eigenvalues (Keiser Method):</strong> Shows the eigenvalues associated with each principal component. Components with eigenvalues greater than 1 are considered significant according to the Keiser criterion.</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
     try:
         # Escalar os dados
         scaler = StandardScaler()
@@ -66,6 +76,7 @@ def plot_pca_results(df):
         # Atualizar os fatores e variáveis relacionadas
         eigenvalues = pca.explained_variance_
         explained_variance_ratio = pca.explained_variance_ratio_
+        eigenvectors = pca.components_
         fatores_x = [f'F{i}' for i in range(1, num_factors + 1)]
         cumulative_variance = np.cumsum(explained_variance_ratio)
 
@@ -77,7 +88,7 @@ def plot_pca_results(df):
             fig1 = px.bar(
                 x=fatores_x,
                 y=explained_variance_ratio,
-                labels={"x": "Fatores", "y": "Variance explained proportion"},
+                labels={"x": "Factors", "y": "Variance explained proportion"},
                 title="Variance explained proportion",
                 text=[f"{v:.2f}" for v in explained_variance_ratio]
             )
@@ -90,7 +101,7 @@ def plot_pca_results(df):
             fig2 = px.bar(
                 x=fatores_x,
                 y=cumulative_variance,
-                labels={"x": "Fatores", "y": "Cumulative Variance Explained"},
+                labels={"x": "Factors", "y": "Cumulative Variance Explained"},
                 title="Cumulative Variance Explained",
                 text=[f"{v:.2f}" for v in cumulative_variance]
             )
@@ -103,7 +114,7 @@ def plot_pca_results(df):
             fig3 = px.bar(
                 x=fatores_x,
                 y=eigenvalues,
-                labels={"x": "Fatores", "y": "Eigenvalues"},
+                labels={"x": "Factors", "y": "Eigenvalues"},
                 title="Keiser Method (Eigenvalues)",
                 text=[f"{v:.2f}" for v in eigenvalues]
             )
@@ -130,18 +141,67 @@ def plot_pca_results(df):
                 key="scatter_y_factor"
             )
 
+        st.write("#")
+
         # ======== Scatterplot ========
         df_pca = pd.DataFrame(X_pca, columns=factor_options)
         df_pca['Date'] = dates.values
 
-        fig_scatter = px.scatter(
-            df_pca, x=x_factor, y=y_factor,
-            color='Date', text='Date',
-            title=f'Principal component analysis: {x_factor } and {y_factor}'
-        )
+        col_scatter, col_eig = st.columns(2)
 
-        # Exibir o gráfico no Streamlit
-        st.plotly_chart(fig_scatter, use_container_width=True)
+        with col_scatter:
+            plt.figure(figsize=(4, 3))  
+
+            sns.scatterplot(
+                data=df_pca,
+                x=x_factor,
+                y=y_factor,
+                color="#179297",  
+                s=20,  
+                edgecolor="black" 
+            )
+
+            st.markdown(
+                f"""
+                <h3 style='color: #179297;'>Principal Component Analysis: {x_factor} vs {y_factor}:</h3>
+                """,
+                unsafe_allow_html=True
+            )
+
+            # Obter a proporção de variância explicada para os fatores selecionados
+            x_variance = explained_variance_ratio[factor_options.index(x_factor)]
+            y_variance = explained_variance_ratio[factor_options.index(y_factor)]
+
+            # Atualizar os rótulos dos eixos com a proporção de variância explicada
+            plt.xlabel(f"{x_factor} ({x_variance:.2%} explained variance)", fontsize=7)
+            plt.ylabel(f"{y_factor} ({y_variance:.2%} explained variance)", fontsize=7)
+
+            for i in range(len(df_pca)):
+                plt.text(
+                df_pca[x_factor][i],
+                df_pca[y_factor][i] +.05,
+                str(df_pca['Date'][i].year),  
+                fontsize=5,
+                ha='center',
+                va='bottom'
+            )
+            
+            plt.xticks(fontsize=6)  
+            plt.yticks(fontsize=6)
+
+            plt.grid(True, linestyle='--', alpha=0.5)
+            plt.tight_layout()
+
+            st.pyplot(plt, clear_figure=True)
+
+        with col_eig:
+            st.markdown(
+                """
+                <h3 style='color: #179297;'>Eigenvectors matrix:</h3>
+                """,
+                unsafe_allow_html=True
+            )
+            st.dataframe(pd.DataFrame(eigenvectors, columns=df_for_pca.columns, index=fatores_x).T, use_container_width=True)
         
     except Exception as e:
-        st.error("There is no eunough data to perform PCA.")
+        st.error("There is no enough data to perform PCA.")

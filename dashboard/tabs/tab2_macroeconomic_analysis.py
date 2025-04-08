@@ -48,8 +48,7 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
             y="Unemployment rate", 
             title="Unemployment Rate over time",
             color_discrete_sequence=['#179297'],
-            markers=True,
-            labels={"Unemployment rate": "Rate (%)", "Date": "Time"}
+            markers=True
         )
         fig1.update_traces(marker=dict(size=3))
         st.plotly_chart(fig1, use_container_width=True)
@@ -69,7 +68,7 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
             color="Euribor Type", 
             markers=True,
             title="Euribor Rates over time",
-            labels={"Rate": "Rate (%)", "Date": "Time", "Euribor Type": "Type"},
+            labels={"Rate": "Rate (%)", "Euribor Type": "Type"},
             color_discrete_sequence=[PRIMARY_COLORS[0], PRIMARY_COLORS[1], PRIMARY_COLORS[2], PRIMARY_COLORS[3]]  # Custom colors for the lines
         )
 
@@ -93,7 +92,7 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
             title="Labour productivity over time",
             color_discrete_sequence=['#179297'],
             markers=True,
-            labels={"Labour Productivity (per persons)": "Labour productivity", "Date": "Date"}
+            labels={"Labour Productivity (per persons)": "Labour productivity"}
         )
         st.plotly_chart(fig3, use_container_width=True)
 
@@ -106,7 +105,7 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
             title="CPI over time",
             markers=True,
             color_discrete_sequence=['#179297'],
-            labels={"CPI all-items (annual inflation rate)-12 month moving average": "Annual inflation rate-12M moving average", "Date": "Date"}
+            labels={"CPI all-items (annual inflation rate)-12 month moving average": "Annual inflation rate-12M moving average"}
         )
         fig4.update_traces(marker=dict(size=3))
         st.plotly_chart(fig4, use_container_width=True)
