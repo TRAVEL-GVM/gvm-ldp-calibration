@@ -104,6 +104,7 @@ def show_bpstat_tab(df):
             multiplot,
             x="Date",
             y="Value",
+            markers=True,
             color="Variable",
             title="Selected Variables Over Time",
             labels={"Value": "Value", "Date": "Time", "Variable": "Variable"},

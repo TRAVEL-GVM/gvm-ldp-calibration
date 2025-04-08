@@ -48,8 +48,10 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
             y="Unemployment rate", 
             title="Unemployment Rate over time",
             color_discrete_sequence=['#179297'],
+            markers=True,
             labels={"Unemployment rate": "Rate (%)", "Date": "Time"}
         )
+        fig1.update_traces(marker=dict(size=3))
         st.plotly_chart(fig1, use_container_width=True)
 
     with col2:
@@ -65,6 +67,7 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
             x="Date",
             y="Rate",
             color="Euribor Type", 
+            markers=True,
             title="Euribor Rates over time",
             labels={"Rate": "Rate (%)", "Date": "Time", "Euribor Type": "Type"},
             color_discrete_sequence=[PRIMARY_COLORS[0], PRIMARY_COLORS[1], PRIMARY_COLORS[2], PRIMARY_COLORS[3]]  # Custom colors for the lines
@@ -72,8 +75,9 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
 
         fig2.update_layout(
             height=400,  
-            margin=dict(l=20, r=20, t=40, b=20) 
+            margin=dict(l=20, r=20, t=40, b=20),
         )
+        fig2.update_traces(marker=dict(size=3))
 
         st.plotly_chart(fig2, use_container_width=True)
 
@@ -88,6 +92,7 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
             y="Labour Productivity (per persons)", 
             title="Labour productivity over time",
             color_discrete_sequence=['#179297'],
+            markers=True,
             labels={"Labour Productivity (per persons)": "Labour productivity", "Date": "Date"}
         )
         st.plotly_chart(fig3, use_container_width=True)
@@ -99,10 +104,11 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
             x="Date",
             y=inflation_df.columns[1], 
             title="CPI over time",
+            markers=True,
             color_discrete_sequence=['#179297'],
             labels={"CPI all-items (annual inflation rate)-12 month moving average": "Annual inflation rate-12M moving average", "Date": "Date"}
         )
-
+        fig4.update_traces(marker=dict(size=3))
         st.plotly_chart(fig4, use_container_width=True)
 
     st.markdown("<hr>", unsafe_allow_html=True)
@@ -184,6 +190,7 @@ def show_macrodata_tab(macro_ecb_df, unemployment_df, labour_prod_df, inflation_
             y="Value",
             color="Variable", 
             title="Selected Variables Over Time",
+            markers=True,
             color_discrete_sequence=['#179297', EXTENDED_COLORS[1], EXTENDED_COLORS[2], EXTENDED_COLORS[3],
                                      EXTENDED_COLORS[4], EXTENDED_COLORS[5], EXTENDED_COLORS[6]],
             labels={"Value": "Value", "Date": "Date", "Variable": "Variable"}

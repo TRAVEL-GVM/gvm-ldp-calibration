@@ -130,23 +130,18 @@ def plot_pca_results(df):
                 key="scatter_y_factor"
             )
 
-        # ======== Scatterplot Interativo com Plotly ========
+        # ======== Scatterplot ========
         df_pca = pd.DataFrame(X_pca, columns=factor_options)
         df_pca['Date'] = dates.values
 
         fig_scatter = px.scatter(
             df_pca, x=x_factor, y=y_factor,
             color='Date', text='Date',
-            title=f'PCA: {x_factor }e {y_factor}',
-            labels={'F1': 'Componente HUJOIPrincipal 1', 'F2': 'Componente Principal 2'}
-        )
-        fig_scatter.update_layout(
-            height=600,  # Altura do gráfico
-            width=400,   # Largura do gráfico
+            title=f'Principal component analysis: {x_factor } and {y_factor}'
         )
 
         # Exibir o gráfico no Streamlit
         st.plotly_chart(fig_scatter, use_container_width=True)
         
     except Exception as e:
-        st.error("Não há dados suficientes para plotar os gráficos.")
+        st.error("There is no eunough data to perform PCA.")
