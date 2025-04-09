@@ -1,3 +1,5 @@
+#################### COLORS CONFIGURATION ###########################
+
 # Primary Colors (Dark to light green shades)
 PRIMARY_COLORS = ["#2e7d32", "#43a047", "#66bb6a", "#a5d6a7"]
 
@@ -35,68 +37,7 @@ CHART_COLORS = [
     EXTENDED_COLORS[6],
 ]
 
-# Satisfaction Color Scale (Matching design doc exactly)
-SATISFACTION_COLORS = {
-    "Very Satisfied": "#179297",  # Dark green
-    "Satisfied": "#66bb6a",  # Medium green
-    "Neutral": "#ffeb3b",  # Yellow
-    "Dissatisfied": "#ff9800",  # Orange
-    "Very Dissatisfied": "#f44336",  # Red
-}
-
-# Housing Situation Colors (Using primary and accent colors)
-HOUSING_COLORS = {
-    "Arrendamento": PRIMARY_COLORS[0],  # Dark green
-    "Casa Própria": SECONDARY_COLORS[0],  # Alternative green
-    "Others": ACCENT_COLORS[0],  # Lime green
-}
-
-# Rent Burden Colors (Using a green to red gradient)
-RENT_BURDEN_COLORS = {
-    "≤30% (Affordable)": PRIMARY_COLORS[0],  # Dark green
-    "31-50% (Moderate)": "#ffeb3b",  # Yellow
-    "51-80% (High)": "#ff9800",  # Orange
-    ">80% (Very High)": "#f44336",  # Red
-    "Unknown": "#cccccc",  # Gray
-}
-
-# Color scales for different visualization types
-COLOR_SCALES = {
-    "sequential": [
-        "#e8f5e9",
-        "#c8e6c9",
-        "#81c784",
-        "#4caf50",
-        "#2e7d32",
-    ],  # Light to dark green
-    "diverging": [
-        "#f44336",
-        "#ffeb3b",
-        "#ffffff",
-        "#66bb6a",
-        "#2e7d32",
-    ],  # Red to green
-    "qualitative": [
-        PRIMARY_COLORS[0],
-        SECONDARY_COLORS[0],
-        ACCENT_COLORS[0],
-        EXTENDED_COLORS[2],
-        EXTENDED_COLORS[4],
-        EXTENDED_COLORS[6],
-        PRIMARY_COLORS[1],
-        SECONDARY_COLORS[1],
-    ],  # Mix of color families
-}
-
-# Additional color combinations for specific visualizations
-VISUALIZATION_COLORS = {
-    "heatmap": "RdYlGn",  # Red-Yellow-Green colorscale
-    "choropleth": "Greens",  # Green sequential colorscale
-    "density": "Viridis",  # Default density colorscale
-    "correlation": "RdBu",  # Red-Blue diverging colorscale
-}
-
-
+#################### BPSTAT INDICATORS ###############################
 # https://bpstat.bportugal.pt/conteudos/quadros/1895
 
 MAP_INDICATORS_METRICS = {
@@ -111,6 +52,7 @@ MAP_INDICATORS_METRICS = {
     "EBIT em percentagem do volume de negócios": "%", "Pressão financeira (Gastos de financiamento/EBITDA)": "%",
                           }
 
+#########################  MEDIUM BPSTAT INDICATORS ##################
 
 MEDIUM_ENTREPRISE_MAP_INDICATORS_KEYS = {
     "Autonomia Financeira": [12606603, 12626412, 12624219, 12615393, 12615893, 12613821,
@@ -174,7 +116,7 @@ MEDIUM_ENTREPRISE_MAP_INDICATORS_KEYS = {
             12609360, 12616211, 12611759, 12610271, 12627495, 12604667,
             12621473, 12590914, 12607577, 12600795, 12619274, 12621406],
 
-    "EBIT em percentagem do volume de negócios": [12598363, 12603493, 12621647, 12613063, 12603800, 12590596,
+    "EBITDA em percentagem do volume de negócios": [12598363, 12603493, 12621647, 12613063, 12603800, 12590596,
             12613955, 12614408, 12605133, 12626108, 12590520, 12627374,
             12617045, 12627545, 12601765, 12611341, 12604183, 12609638],
 
@@ -187,6 +129,152 @@ MEDIUM_ENTREPRISE_MAP_INDICATORS_KEYS = {
             12597459, 12613803, 12608407, 12623434, 12623066, 12605761]
                           }
 
+
+################# SMALL BPSTAT INDICATORS ############################
+
+SMALL_ENTREPRISE_MAP_INDICATORS_KEYS = {
+    "Autonomia Financeira": [],
+
+    "Financiamentos obtidos em percentagem do passivo": [],
+
+    "Custo dos financiamentos obtidos": [],
+
+    "VAB em percentagem da produção": [],
+
+    "Rendibilidade do ativo": [],
+
+    "Rendibilidade bruta dos capitais investidos": [],
+
+    "Cobertura dos gastos de financiamento": [],
+
+    "Financiamentos obtidos em percentagem do ativo": [],
+
+    "Margem EBITDA em percentagem dos rendimentos": [],
+
+    "Rácio dos financiamentos obtidos sobre EBITDA": [],
+
+    "Rendibilidade dos capitais próprios": [],
+
+    "Margem líquida em percentagem dos rendimentos": [],
+
+    "Capital próprio em percentagem do ativo": [],
+
+    "Margem bruta em percentagem dos rendimentos": [],
+
+    "Margem EBIT em percentagem dos rendimentos": [],
+
+    "EBIT em percentagem do volume de negócios": [],
+
+    "Pressão financeira (Gastos de financiamento/EBITDA)": [] ,
+
+    "Liquidez geral": []
+                          }
+
+################# LARGE BPSTAT INDICATORS ############################
+
+LARGE_ENTREPRISE_MAP_INDICATORS_KEYS = {
+    "Autonomia Financeira": [12622796,	12601580,	12598415,	12614923,	12630562,	12592744,
+                            12616195,	12619905,	12621183,	12624962,	12600103,	12629384,	
+                            12630072,	12598282,	12611613,	12594706,	12622249,	12600493],
+
+    "Financiamentos obtidos em percentagem do passivo": [12591387,	12599342,	12602117,	12601218,	12610423,	12590555,
+                                                         	12597597,	12587861,	12597966,	12624950,	12602783,	12591675,
+                                                                	12614787,	12626757,	12624274,	12602123,	12612975,	12614113],
+
+    "Custo dos financiamentos obtidos": [12592661,	12616155,	12616023,	12593012,	12593068,	12589986,
+                                         	12597379,	12588701,	12591697,	12630549,	12619596,	12630768,	
+                                            12615957,	12620671,	12602109,	12621561,	12622180,	12616685],
+
+    "VAB em percentagem da produção": [12593468,	12604974,	12599146,	12613274,	12604247,	12629692,	12597683,	12614243,	12600154,
+                                       	12616948,	12610694,	12623234,	12625579,	12627341,	12605437,	12623904,	12602174,	12628511],
+
+    "Rendibilidade do ativo": [12629003,	12613559,	12614140,	12610447,	12588459,	12603146,	12617437,	12621303,	12608947,	12628486,
+                               	12590471,	12617325,	12600123,	12597300,	12628516,	12601707,	12605617,	12588052],
+
+    "Rendibilidade bruta dos capitais investidos": [12629619,	12629302,	12622093,	12611483,	12594853,	12597399,	12617863,	12613316,	12607696,
+                                                    	12624750,	12609788,	12598288,	12594305,	12588781,	12591934,	12617626,	12591555,	12594775],
+
+    "Cobertura dos gastos de financiamento": [12621099,	12607351,	12595381,	12626046,	12610647,	12598671,
+    	12627539,	12623772,	12610767,	12623754,	12615001,	12625227,	12620288,	12608691,	12601118,	12595439,	12612096,	12606954],
+
+    "Financiamentos obtidos em percentagem do ativo": [12599231,	12595918,	12598867,	12607099,	12595138,	12599584,	12609408,	12604485,	12612853,
+                                                       	12608005,	12605805,	12620883,	12613386,	12619855,	12624716,	12607128,	12619189,	12588884],
+
+    "Margem EBITDA em percentagem dos rendimentos": [12604080,	12622014,	12591370,	12617401,	12629992,	12587741,	12619242,	12593137,	12615660,
+                                                     	12593262,	12613783,	12611095,	12615541,	12620847,	12608845,	12615366,	12629473,	12626997],
+
+    "Rácio dos financiamentos obtidos sobre EBITDA": [12610352,	12604450,	12594355,	12602838,	12620403,	12603731,	12589403,	12602553,	12608552,	12599185,
+                                                      	12619476,	12628821,	12587823,	12591737,	12612293,	12614179,	12627030,	12592643],
+
+    "Rendibilidade dos capitais próprios": [12600694,	12592698,	12598826,	12593609,	12627957,	12608692,	12619981,	12604062,	12608696,	12601559,	12626104,
+                                            	12603659,	12614239,	12629152,	12622750,	12613549,	12587402,	12625056],
+
+    "Margem líquida em percentagem dos rendimentos": [12626014,	12625843,	12590203,	12592975,	12609800,	12599455,	12604058,	12616043,	12613411,
+                                                      	12597466,	12590927,	12605608,12626133,	12621211,	12597564, 12598648,	12600706,	12591019],
+
+    "Capital próprio em percentagem do ativo": [12632324,	12632120,	12632454,	12632136,	12632117,	12632248,
+                                                        12632149,	12632134,	12632322,	12632332,	12632373,	12632182,
+                                                        12632312,	12632412,	12632158,	12632473,	12632508,	12632101],
+
+    "Margem bruta em percentagem dos rendimentos": [12590977,	12624893,	12609477,	12618131,	12625107,	12598333,	12626907,	12622950,	12588962,
+                                                    	12607244,	12610019, 12599817,	12624961,	12602643,	12626253,	12622353,	12623793,	12598143],
+
+    "Margem EBIT em percentagem dos rendimentos": [12626939,	12625638,	12589338,	12622373,	12594598,	12628552,	12630209,	12613720,	12620667,	12618046,
+                                                   	12618248,	12589306,	12599988,	12591998,	12604295,	12612001,	12589788,	12593158],
+
+    "EBITDA em percentagem do volume de negócios": [12587331,	12611584,	12598461,	12598442,	12593127,	12604533,	12613929,
+                                                    	12598235,	12602240,	12627342,	12619828,	12616388,	12598623,	12625504,
+                                                            	12626765,	12595071,	12611936,	12624652],
+
+    "Pressão financeira (Gastos de financiamento/EBITDA)": [12604052,	12621073,	12590047,	12625309,	12625673,	12630112,	12602347,	12603714,	12597607,
+                                                            	12589683,	12592767,	12608984,	12626905,	12594388,	12602266,	12590131,	12625109,	12600392] ,
+
+    "Liquidez geral": [12621086,	12621470,	12623898,	12598942,	12625689,	12601114,	12603344,	12622307,	12610468,	12614520,
+                       	12597668,	12598604,	12620280,	12626112,	12622386,	12630383,	12617088,	12602699]
+                          
+                          }
+
+################### ALL COMPANIES BPSTAT INDICATORS ##################
+
+ALL_ENTREPRISE_MAP_INDICATORS_KEYS = {
+    "Autonomia Financeira": [],
+
+    "Financiamentos obtidos em percentagem do passivo": [],
+
+    "Custo dos financiamentos obtidos": [],
+
+    "VAB em percentagem da produção": [],
+
+    "Rendibilidade do ativo": [],
+
+    "Rendibilidade bruta dos capitais investidos": [],
+
+    "Cobertura dos gastos de financiamento": [],
+
+    "Financiamentos obtidos em percentagem do ativo": [],
+
+    "Margem EBITDA em percentagem dos rendimentos": [],
+
+    "Rácio dos financiamentos obtidos sobre EBITDA": [],
+
+    "Rendibilidade dos capitais próprios": [],
+
+    "Margem líquida em percentagem dos rendimentos": [],
+
+    "Capital próprio em percentagem do ativo": [],
+
+    "Margem bruta em percentagem dos rendimentos": [],
+
+    "Margem EBIT em percentagem dos rendimentos": [],
+
+    "EBITDA em percentagem do volume de negócios": [],
+
+    "Pressão financeira (Gastos de financiamento/EBITDA)": [] ,
+
+    "Liquidez geral": []
+                          }
+
+####################################################################
 
 indicadores_ecb = {
 
@@ -326,6 +414,9 @@ MAP_OTHER_ECB_INDICATORS = {
     }
 
 
+################################################################################################################3
+
+
 ldp_sectors = ['All', 'Agricult & fishing', 'Mining and quarrying', 'Manufacturing', 'Electricity and gas', 'Water and waste',
                'Construction', 'Trade', 'Transport and storage', 'Hotels and similar', 'Information and communication', 'Real estate', 
                'Administrative activities', 'Education', 'Health and social', 'Shows and sports', 'Professional and scientific']
@@ -350,6 +441,69 @@ medium_all_columns = ['Date',
        'Financial pressure-Medium-%',
        'Current ratio-Medium-%']
 
+small_all_columns = ['Date', 
+       'Capital ratio-Small-%',
+       'Financial debt (% liabilities)-Small',
+       'Cost of financial debt-Small-%',
+       'GVA (% output)-Small',
+       'Return on assets-Small-%',
+       'EBITDA / invested capital-Small-%',
+       'Financing expenses coverage ratio-Small',
+       'Financial debt (% assets)-Small',
+       'EBITDA margin (% income)-Small',
+       'Financial debt over EBITDA-Small',
+       'Return on equity-Small-%',
+       'Net income (% income)-Small',
+       'Equity (% assets)-Small',
+       'Gross profit (% income)-Small',
+       'EBIT margin (% income)-Small',
+       'EBITDA (% turnover )-Small',
+       'Financial pressure-Small-%',
+       'Current ratio-Small-%']
+
+large_all_columns = ['Date', 
+       'Capital ratio-Large-%',
+       'Financial debt (% liabilities)-Large',
+       'Cost of financial debt-Large-%',
+       'GVA (% output)-Large',
+       'Return on assets-Large-%',
+       'EBITDA / invested capital-Large-%',
+       'Financing expenses coverage ratio-Large',
+       'Financial debt (% assets)-Large',
+       'EBITDA margin (% income)-Large',
+       'Financial debt over EBITDA-Large',
+       'Return on equity-Large-%',
+       'Net income (% income)-Large',
+       'Equity (% assets)-Large',
+       'Gross profit (% income)-Large',
+       'EBIT margin (% income)-Large',
+       'EBITDA (% turnover )-Large',
+       'Financial pressure-Large-%',
+       'Current ratio-Large-%']
+
+all_companies_all_columns = ['Date', 
+       'Capital ratio-%',
+       'Financial debt (% liabilities)',
+       'Cost of financial debt-%',
+       'GVA (% output)',
+       'Return on assets-%',
+       'EBITDA / invested capital-%',
+       'Financing expenses coverage ratio',
+       'Financial debt (% assets)',
+       'EBITDA margin (% income)',
+       'Financial debt over EBITDA',
+       'Return on equity-%',
+       'Net income (% income)',
+       'Equity (% assets)',
+       'Gross profit (% income)',
+       'EBIT margin (% income)',
+       'EBITDA (% turnover )',
+       'Financial pressure-%',
+       'Current ratio-%']
+
+
+
+############ CSS STYLES FOR THE CONTAINER AND BUTTONS ############
 
 container_style_html = """
     <style>

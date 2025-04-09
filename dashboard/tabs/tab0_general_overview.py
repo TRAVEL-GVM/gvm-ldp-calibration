@@ -11,7 +11,7 @@ import xlsxwriter
 
 # Add the parent directory to system path
 sys.path.append(str(Path(__file__).parent.parent))
-from config import SATISFACTION_COLORS, HOUSING_COLORS, BACKGROUND_COLORS, TEXT_COLORS
+from config import BACKGROUND_COLORS, TEXT_COLORS
 
 
 def show_visao_geral_tab(unemployment_df, euribors_df, macro_ecb_df, labour_prod_df, inflation_df, ldp_df, type_company):

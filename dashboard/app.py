@@ -46,18 +46,18 @@ def load_data(ttl=3600*24):
         # LDPs data (Medium companies)
         df_medium_ldp = get_ldp_data(MEDIUM_ENTREPRISE_MAP_INDICATORS_KEYS)
         # LDPs data (Large companies)
-        #df_large_ldp = get_ldp_data(LARGE_ENTREPRISE_MAP_INDICATORS_KEYS)
+        df_large_ldp = get_ldp_data(LARGE_ENTREPRISE_MAP_INDICATORS_KEYS)
         # LDPs data (All companies)
         #df_all_ldp= get_ldp_data(ALL_ENTREPRISE_MAP_INDICATORS_KEYS)
 
-        return macro_ecb_data, df_unemployment, df_labour_prod, df_inflation, df_euribors, df_medium_ldp
+        return macro_ecb_data, df_unemployment, df_labour_prod, df_inflation, df_euribors, df_medium_ldp, df_large_ldp
     except Exception as e:
         st.error(f"Error loading data: {e}")
         return pd.DataFrame()  # Return empty dataframe if loading fails
 
 
 # Load the data from the web
-macro_ecb_data, df_unemployment, df_labour_prod, df_inflation, df_euribors, df_medium_ldp = load_data()
+macro_ecb_data, df_unemployment, df_labour_prod, df_inflation, df_euribors, df_medium_ldp, df_large_ldp = load_data()
 
 # create anual data
 def create_total_data(ldp):
@@ -134,10 +134,10 @@ elif company_type == "Medium":
 
 elif company_type == "Large":
     # fazer update para large
-    df_ldp = df_medium_ldp.copy()
+    df_ldp = df_large_ldp.copy()
     total_data = create_total_data(df_ldp)[0]
     macrodata_total = create_total_data(df_ldp)[1]
-    cols_sector = medium_all_columns
+    cols_sector = large_all_columns
 
 
 # Create tabs
