@@ -8,10 +8,8 @@ from sklearn.decomposition import PCA
 import streamlit as st
 from datetime import datetime
 from config import *
-#from viz import *
 
-
-def plot_pca_results_tab(df, df_macro):
+def plot_pca_results_tab(df, df_macro, cols_sector):
 
     with st.expander("📊 PCA Analysis", expanded=True):
         st.markdown("""
@@ -44,7 +42,7 @@ def plot_pca_results_tab(df, df_macro):
 
         
     if sector == 'All':
-        df_filtered = df[medium_all_columns]
+        df_filtered = df[cols_sector]
     else:
         df_filtered = df.filter(like=sector)
         if 'Date' not in df_filtered.columns:

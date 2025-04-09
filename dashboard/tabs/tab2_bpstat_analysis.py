@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 from config import *
 
-def show_bpstat_tab(df):
+def show_bpstat_tab(df, cols_sector):
     """
 
     """
@@ -42,7 +42,7 @@ def show_bpstat_tab(df):
         ldp_sectors, index=0)
     
     if sector == 'All':
-        df_filtered = df[medium_all_columns]
+        df_filtered = df[cols_sector]
     else:
         df_filtered = df.filter(like=sector)
         if 'Date' not in df_filtered.columns:

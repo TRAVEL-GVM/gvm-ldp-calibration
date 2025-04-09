@@ -6,10 +6,10 @@ from config import *
 from get_data import *
 
 from tabs.tab0_general_overview import *
-from tabs.tab1_pca import * #show_geographic_analysis_tab
-from tabs.tab2_macroeconomic_analysis import * #show_housing_distribution_tab
-from tabs.tab3_bpstat_analysis import * #show_satisfaction_levels_tab
-from tabs.tab4_concatdata_analysis import *
+from tabs.tab4_pca import * 
+from tabs.tab1_macroeconomic_analysis import * 
+from tabs.tab2_bpstat_analysis import * 
+from tabs.tab3_concatdata_analysis import *
 
 # Set page configuration
 st.set_page_config(layout="wide", page_title="LDPs calibration dashboard")
@@ -117,23 +117,27 @@ if company_type == "All":
     df_ldp = df_medium_ldp.copy()
     total_data = create_total_data(df_ldp)[0]
     macrodata_total = create_total_data(df_ldp)[1]
+    cols_sector = medium_all_columns
 
 elif company_type == "Small":
     # fazer update para small
     df_ldp = df_medium_ldp.copy()
     total_data = create_total_data(df_ldp)[0]
     macrodata_total = create_total_data(df_ldp)[1]
+    cols_sector = medium_all_columns
 
 elif company_type == "Medium":
     df_ldp = df_medium_ldp.copy()
     total_data = create_total_data(df_ldp)[0]
     macrodata_total = create_total_data(df_ldp)[1]
+    cols_sector = medium_all_columns
 
 elif company_type == "Large":
     # fazer update para large
     df_ldp = df_medium_ldp.copy()
     total_data = create_total_data(df_ldp)[0]
     macrodata_total = create_total_data(df_ldp)[1]
+    cols_sector = medium_all_columns
 
 
 # Create tabs
@@ -154,10 +158,10 @@ with tab1:
     )
 
 with tab2:
-    show_bpstat_tab(df_ldp)
+    show_bpstat_tab(df_ldp, cols_sector)
 
 with tab3:
-    show_macro_vs_riskdrivers_tab(total_data)
+    show_macro_vs_riskdrivers_tab(total_data, macrodata_total, cols_sector)
 
 with tab4:
-    plot_pca_results_tab(df_medium_ldp, macrodata_total)
+    plot_pca_results_tab(df_ldp, macrodata_total, cols_sector)
