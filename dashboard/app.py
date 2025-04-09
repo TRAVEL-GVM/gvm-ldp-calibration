@@ -59,6 +59,42 @@ def load_data(ttl=3600*24):
 # Load the data from the web
 macro_ecb_data, df_unemployment, df_labour_prod, df_inflation, df_euribors, df_medium_ldp = load_data()
 
+# create anual data
+def create_total_data(ldp):
+
+    ldp_data = ldp.copy()
+    ldp_data['Date'] = pd.to_datetime(ldp_data['Date']).dt.year
+
+    df_unemployment_dec = df_unemployment[df_unemployment['Date'].dt.month == 12]
+    df_unemployment_dec['Date'] = df_unemployment_dec['Date'].dt.year
+
+    df_labour_prod_dec = df_labour_prod[df_labour_prod['Date'].dt.month == 1]
+    df_labour_prod_dec['Date'] = df_labour_prod_dec['Date'].dt.year - 1
+
+    df_inflation_dec = df_inflation.copy()
+    df_inflation_dec['Date'] = pd.to_datetime(df_inflation_dec['Date'])
+    df_inflation_dec = df_inflation_dec[df_inflation_dec['Date'].dt.month == 12]
+    df_inflation_dec['Date'] = df_inflation_dec['Date'].dt.year
+
+    df_euribors_dec = df_euribors.copy()
+    df_euribors_dec['Date'] = pd.to_datetime(df_euribors_dec['Date'])
+    df_euribors_dec = df_euribors_dec[df_euribors_dec['Date'].dt.month == 12]
+    df_euribors_dec['Date'] = df_euribors_dec['Date'].dt.year
+
+    annual_data = macro_ecb_data.merge(ldp_data, on='Date', how='left')
+    annual_data = annual_data.merge(df_unemployment_dec, on='Date', how='left')
+    annual_data = annual_data.merge(df_labour_prod_dec, on='Date', how='left')
+    annual_data = annual_data.merge(df_inflation_dec, on='Date', how='left')
+    annual_data = annual_data.merge(df_euribors_dec, on='Date', how='left')
+
+    ### only macrodata total
+    total_macrodata = macro_ecb_data.merge(df_unemployment_dec, on='Date', how='left')
+    total_macrodata = total_macrodata.merge(df_labour_prod_dec, on='Date', how='left')
+    total_macrodata = total_macrodata.merge(df_inflation_dec, on='Date', how='left')
+    total_macrodata = total_macrodata.merge(df_euribors_dec, on='Date', how='left')
+
+    return annual_data, total_macrodata
+
 # Create dashboard title and introduction
 st.image("design docs/travel.webp",width=250)
 
@@ -79,21 +115,28 @@ company_type = st.selectbox(
 if company_type == "All":
     # fazer update para all
     df_ldp = df_medium_ldp.copy()
+    total_data = create_total_data(df_ldp)[0]
+    macrodata_total = create_total_data(df_ldp)[1]
 
 elif company_type == "Small":
     # fazer update para small
     df_ldp = df_medium_ldp.copy()
+    total_data = create_total_data(df_ldp)[0]
+    macrodata_total = create_total_data(df_ldp)[1]
 
 elif company_type == "Medium":
-
     df_ldp = df_medium_ldp.copy()
+    total_data = create_total_data(df_ldp)[0]
+    macrodata_total = create_total_data(df_ldp)[1]
 
 elif company_type == "Large":
     # fazer update para large
     df_ldp = df_medium_ldp.copy()
+    total_data = create_total_data(df_ldp)[0]
+    macrodata_total = create_total_data(df_ldp)[1]
 
 
-# Create tabs for different insights
+# Create tabs
 tab0, tab1, tab2, tab3, tab4 = st.tabs([
     "General overview", 
     "Macroeconomic data analysis", 
@@ -114,7 +157,7 @@ with tab2:
     show_bpstat_tab(df_ldp)
 
 with tab3:
-    show_housing_types_sizes_tab()
+    show_macro_vs_riskdrivers_tab(total_data)
 
 with tab4:
-    plot_pca_results(df_medium_ldp)
+    plot_pca_results_tab(df_medium_ldp, macrodata_total)

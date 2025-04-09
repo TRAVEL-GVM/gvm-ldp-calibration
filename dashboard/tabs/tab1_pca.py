@@ -11,18 +11,38 @@ from config import *
 #from viz import *
 
 
-def plot_pca_results(df):
+def plot_pca_results_tab(df, df_macro):
+
+    with st.expander("📊 PCA Analysis", expanded=True):
+        st.markdown("""
+        <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 5px solid #179297; margin-bottom: 20px;">
+        <ul>
+        <li><strong>Variance Explained Proportion:</strong> Shows the proportion of variance explained by each principal component. It helps identify which components capture the most variability in the dataset.</li>
+        <li><strong>Cumulative Variance Explained:</strong> Displays the cumulative variance explained by the principal components. It indicates how much of the total variance is captured as more components are added, helping to decide the optimal number of components to retain.</li>
+        <li><strong>Eigenvalues (Keiser Method):</strong> Shows the eigenvalues associated with each principal component. Components with eigenvalues greater than 1 are considered significant according to the Keiser criterion.</li>
+        </ul>
+        </div>
+        """, unsafe_allow_html=True)
 
     current_year = datetime.now().year
     date2 = str(current_year - 1) + '-01-01'
     df = df[(df['Date'] >= '2008-01-01') & (df['Date'] <= date2)]
-    
-    # Add a selectbox for sector selection with a unique key
-    sector = st.selectbox(
-        "Select the business sector to analyze:",
-        ldp_sectors, index=0, key="sector_selectbox_tab1"
-    )
-    
+
+    col100, col101 = st.columns(2)
+    with col100:
+        # Add a selectbox for sector selection with a unique key
+        sector = st.selectbox(
+            "Select the business sector to analyze:",
+            ldp_sectors, index=0, key="sector_selectbox_tab1"
+        )
+
+    with col101:
+        include_macro = st.selectbox(
+            "Do you want macroeconomics data for the PCA analysis?",
+            ["Yes", "No"], index=1, key="include_macro"
+        )
+
+        
     if sector == 'All':
         df_filtered = df[medium_all_columns]
     else:
@@ -31,6 +51,23 @@ def plot_pca_results(df):
             df_filtered['Date'] = df['Date']
             df_filtered = df_filtered[['Date'] + [col for col in df_filtered.columns if col != 'Date']]
 
+    selected_macro = st.multiselect(
+            "Select which macroeconomics you want for the PCA analysis?",
+            options=df_macro.columns[1:], default=df_macro.columns[1:5], key="selected_macro"
+        )
+
+    if include_macro == "Yes":
+        selected_macro_ = ['Date'] + selected_macro
+        st.write("Including macroeconomic data for PCA analysis.")
+        df_filtered = df_filtered[df_filtered['Date'].dt.month == 12]
+        df_filtered['Date'] = df_filtered['Date'].dt.year
+        df_filtered = pd.merge(df_filtered, df_macro[selected_macro_], on='Date', how='left')
+
+    else:
+        df_filtered['Date'] = pd.to_datetime(df_filtered['Date']).dt.year
+
+    
+
     # Eliminar colunas com mais de 30% de valores nulos
     threshold = int(0.7 * df_filtered.shape[0])  # Pelo menos 70% de valores não nulos
     df_filtered = df_filtered.dropna(thresh=threshold, axis=1)
@@ -38,22 +75,14 @@ def plot_pca_results(df):
     # Eliminar linhas que ainda tiverem pelo menos um valor nulo
     df_filtered = df_filtered.dropna(axis=0)
 
-
+    
+    with st.expander("🔍Show data for PCA", expanded=False):
+        st.dataframe(df_filtered)
     ###################################################
 
     dates = df_filtered['Date']
     df_for_pca = df_filtered[df_filtered.columns[1:]]  # remove 'Date'
     st.write("Shape dos dados para PCA:", df_for_pca.shape)
-
-    st.markdown("""
-    <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 5px solid #179297; margin-bottom: 20px;">
-    <ul>
-    <li><strong>Variance Explained Proportion:</strong> Shows the proportion of variance explained by each principal component. It helps identify which components capture the most variability in the dataset.</li>
-    <li><strong>Cumulative Variance Explained:</strong> Displays the cumulative variance explained by the principal components. It indicates how much of the total variance is captured as more components are added, helping to decide the optimal number of components to retain.</li>
-    <li><strong>Eigenvalues (Keiser Method):</strong> Shows the eigenvalues associated with each principal component. Components with eigenvalues greater than 1 are considered significant according to the Keiser criterion.</li>
-    </ul>
-    </div>
-    """, unsafe_allow_html=True)
 
     try:
         # Escalar os dados
@@ -180,7 +209,7 @@ def plot_pca_results(df):
                 plt.text(
                 df_pca[x_factor][i],
                 df_pca[y_factor][i] +.05,
-                str(df_pca['Date'][i].year),  
+                str(df_pca['Date'][i]),  
                 fontsize=5,
                 ha='center',
                 va='bottom'

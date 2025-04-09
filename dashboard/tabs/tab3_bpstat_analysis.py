@@ -16,21 +16,23 @@ def show_bpstat_tab(df):
 
     ########################################################################################
     st.header("Risk drivers")
+
+    with st.expander("📊 Analysis Overview", expanded=True):
     
-    # Start with a compelling problem statement
-    st.markdown("""
-    <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 5px solid #179297; margin-bottom: 20px;">
-    <h4 style="color: #179297; margin-top: 0;">Analysis Overview</h4>
-    <p>This section provides an in-depth analysis of key risk drivers across various business sectors. Use the tools below to explore trends, correlations, and normalized data for better insights:</p>
-    <ul>
-    <li><strong>Sector Selection:</strong> Choose a specific business sector or analyze all sectors combined.</li>
-    <li><strong>Data Visualization:</strong> Generate line plots for single or multiple variables to observe trends over time.</li>
-    <li><strong>Normalization:</strong> Optionally normalize variables to compare data on a standardized scale.</li>
-    <li><strong>Correlation Matrix:</strong> Identify relationships between selected variables using a triangular correlation heatmap.</li>
-    </ul>
-    <p>These tools are designed to help you uncover patterns and dependencies that drive business risks, enabling more informed decision-making.</p>
-    </div>
-    """, unsafe_allow_html=True)
+        # Start with a compelling problem statement
+        st.markdown("""
+        <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 5px solid #179297; margin-bottom: 20px;">
+        <h4 style="color: #179297; margin-top: 0;">Analysis Overview</h4>
+        <p>This section provides an in-depth analysis of key risk drivers across various business sectors. Use the tools below to explore trends, correlations, and normalized data for better insights:</p>
+        <ul>
+        <li><strong>Sector Selection:</strong> Choose a specific business sector or analyze all sectors combined.</li>
+        <li><strong>Data Visualization:</strong> Generate line plots for single or multiple variables to observe trends over time.</li>
+        <li><strong>Normalization:</strong> Optionally normalize variables to compare data on a standardized scale.</li>
+        <li><strong>Correlation Matrix:</strong> Identify relationships between selected variables using a triangular correlation heatmap.</li>
+        </ul>
+        <p>These tools are designed to help you uncover patterns and dependencies that drive business risks, enabling more informed decision-making.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     ############################################################################################
 
