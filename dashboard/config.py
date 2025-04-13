@@ -133,41 +133,58 @@ MEDIUM_ENTREPRISE_MAP_INDICATORS_KEYS = {
 ################# SMALL BPSTAT INDICATORS ############################
 
 SMALL_ENTREPRISE_MAP_INDICATORS_KEYS = {
-    "Autonomia Financeira": [],
+    "Autonomia Financeira": [12612277,	12600261,	12604116,	12619630,	12594535,	12619871,	12592616,	12605931,	12606434,	12609884,
+                             	12611532,	12608550,	12611646,	12592144,	12601411,	12599169,	12594269,	12629865],
+    "Financiamentos obtidos em percentagem do passivo": [12602738,	12595080,	12612330,	12600867,	12613416,	12617725,	12589549,	12595206,
+                                                         	12590746,	12597722,	12614882,	12598095,	12627017,	12625134,	12604660,	12597037,	12629440,	12592662],
 
-    "Financiamentos obtidos em percentagem do passivo": [],
+    "Custo dos financiamentos obtidos": [12604315,	12601456,	12615688,	12623183,	12587349,	12604920,	12604924,	12600987,	12604173,	12596555,	12627319,	
+                                         12627533,	12601680,	12608719,	12623379,	12588608,	12615446,	12620728],
 
-    "Custo dos financiamentos obtidos": [],
+    "VAB em percentagem da produção": [	12612021,	12615357,	12620147,	12628020,	12594583,	12603702,	12628310,	12588787,	12590314,
+                                       	12629616,	12591267,	12596858,	12619824,	12602627,	12590579,	12601804,	12610747,	12621914],
 
-    "VAB em percentagem da produção": [],
+    "Rendibilidade do ativo": [12630036,	12597386,	12613533,	12623889,	12600264,	12601442,	12594491,	12587761,	12598286,	12618001,
+                               	12594915,	12624551,	12614699,	12613003,	12610938,	12620731,	12603183,	12621957],
 
-    "Rendibilidade do ativo": [],
+    "Rendibilidade bruta dos capitais investidos": [12595922,	12613834,	12627296,	12625700,	12605660,	12624337,	12624199,	12596775,
+                                                    	12619057,	12613630,	12604473,	12613322,	12592014,	12609371,	12597131,	12628052, 12619751,	12620029],
 
-    "Rendibilidade bruta dos capitais investidos": [],
+    "Cobertura dos gastos de financiamento": [12594850,	12592877,	12603207,	12588436,	12618618,	12587400,	12623008,	12593733,	12609847,	12628204,	12620790,
+                                              	12629206,	12605760,	12592976,	12607666,	12600990,	12592422,	12623136],
 
-    "Cobertura dos gastos de financiamento": [],
+    "Financiamentos obtidos em percentagem do ativo": [12605619,	12622439,	12596803,	12588158,	12605951,	12591618,	12609502,	12620406,
+                                                       	12618409,	12612520,	12598601,	12628097,	12602328,	12611422,	12619692,	12608656,	12594335,	12598937],
 
-    "Financiamentos obtidos em percentagem do ativo": [],
+    "Margem EBITDA em percentagem dos rendimentos": [12593537,	12615370,	12619214,	12628524,	12609293,	12589732,	12596987,	12596212,	12620573,	12596744,
+                                                     	12611104,	12622624,	12616815,	12597432,	12630235,	12599043,	12627603,	12620255],
 
-    "Margem EBITDA em percentagem dos rendimentos": [],
+    "Rácio dos financiamentos obtidos sobre EBITDA": [12621354,	12610164,	12600423,	12617760,	12596376,	12630569,	12605831,	12601790,	12627403,
+                                                      	12603767,	12619765,	12595002,	12620704,	12621341,	12606881,	12607230,	12599703,	12610947],
 
-    "Rácio dos financiamentos obtidos sobre EBITDA": [],
+    "Rendibilidade dos capitais próprios": [12607124,	12589142,	12608034,	12610084,	12622969,	12603369,	12618994,	12629212,	12626403,	12620922,
+                                            	12591810,	12589305,	12625317,	12627688,	12602369,	12621511,	12621067,	12608198],
 
-    "Rendibilidade dos capitais próprios": [],
+    "Margem líquida em percentagem dos rendimentos": [12609507,	12598902,	12607878,	12606588,	12615908,	12612995,	12597135,	12606837,	12593072,
+                                                      	12609164,	12619523,	12592789,	12619769,	12620596,	12609248,	12598976,	12617697,	12619867],
 
-    "Margem líquida em percentagem dos rendimentos": [],
+    "Capital próprio em percentagem do ativo": [12632307,	12632480,	12632457,	12632487,	12632356,	12632246,	12632396,	12632402,	12632418,	12632406,
+                                                	12632338,	12632320,	12632178,	12632494,	12632372,	12632432,	12632354,	12632091],
 
-    "Capital próprio em percentagem do ativo": [],
+    "Margem bruta em percentagem dos rendimentos": [12613905,	12620138,	12607918,	12626779,	12587478,	12602542,	12608297,	12615711,	12612342,	12627871,
+                                                    	12630625,	12603969,	12617672,	12621527,	12591105,	12630182,	12597180,	12627632],
 
-    "Margem bruta em percentagem dos rendimentos": [],
+    "Margem EBIT em percentagem dos rendimentos": [12591098,	12608715,	12588536,	12609032,	12617568,	12596182,	12614377,	12620608,	12621334,
+                                                   	12613882,	12627872,	12617324,	12617397,	12627064,	12599893,	12624335,	12610952,	12600088],
 
-    "Margem EBIT em percentagem dos rendimentos": [],
+    "EBITDA em percentagem do volume de negócios": [12592617,	12611789,	12600139,	12613033,	12630207,	12610422,	12610856,	12611985,	12589398,
+                                                    	12596765,	12593973,	12591710,	12609388,	12608435,	12615461,	12602089,	12604396,	12618714],
 
-    "EBIT em percentagem do volume de negócios": [],
+    "Pressão financeira (Gastos de financiamento/EBITDA)": [12589197,	12615250,	12606237,	12623496,	12614472,	12599024,	12594699,	12618505,	12616849,
+                                                            	12590097,	12611577,	12592913,	12613208,	12624116,	12609037,	12593884,	12621670,	12621158] ,
 
-    "Pressão financeira (Gastos de financiamento/EBITDA)": [] ,
-
-    "Liquidez geral": []
+    "Liquidez geral": [12611121,	12604054,	12588487,	12598196,	12630619,	12608490,	12596945,	12597550,	12594648,	12619314,	12608513,
+                       	12606853,	12616856,	12618073,	12596259,	12620725,	12588742,	12606622]
                           }
 
 ################# LARGE BPSTAT INDICATORS ############################
@@ -237,41 +254,58 @@ LARGE_ENTREPRISE_MAP_INDICATORS_KEYS = {
 ################### ALL COMPANIES BPSTAT INDICATORS ##################
 
 ALL_ENTREPRISE_MAP_INDICATORS_KEYS = {
-    "Autonomia Financeira": [],
+    "Autonomia Financeira": [12613354,	12595543,	12599392,	12589332,	12628684,	12607338,	12622294,	12600040,	12599242,	12603085,
+                             	12596281,	12627796,	12612950,	12617892,	12599535,	12622040,	12601084,	12610517],
 
-    "Financiamentos obtidos em percentagem do passivo": [],
+    "Financiamentos obtidos em percentagem do passivo": [12611012,	12615694,	12612333,	12594312,	12590318,	12608571,	12603749,	12623362,	12618120,
+                                                         	12595207,	12630752,	12609760,	12628506,	12630252,	12610381,	12599491,	12596971,	12627452],
 
-    "Custo dos financiamentos obtidos": [],
+    "Custo dos financiamentos obtidos": [12613237,	12628897,	12595413,	12590899,	12601925,	12616701,	12618411,	12595504,	12625145,	12612480,	12624755,
+                                         	12610657,	12590180,	12629168,	12619322,	12606730,	12619487,	12610753],
 
-    "VAB em percentagem da produção": [],
+    "VAB em percentagem da produção": [12610227,	12617983,	12624790,	12626019,	12622671,	12600310,	12610102,	12618814,	12591446,	12600957,
+                                       	12623470,	12589896,	12590039,	12599351,	12592393,	12596851,	12594289,	12598231],
 
-    "Rendibilidade do ativo": [],
+    "Rendibilidade do ativo": [12587416,	12593009,	12608729,	12600873,	12594987,	12595753,	12590961,	12615868,	12598649,	12611776,
+                               	12602724,	12629939,	12588328,	12593279,	12610304,	12620940,	12606596,	12628136],
 
-    "Rendibilidade bruta dos capitais investidos": [],
+    "Rendibilidade bruta dos capitais investidos": [12618746,	12614313,	12603289,	12630284,	12621254,	12626560,	12598218,	12620898,	12587440,
+                                                    	12595740,	12612643,	12588106,	12596283,	12594209,	12624031,	12610712,	12587809,	12601584],
 
-    "Cobertura dos gastos de financiamento": [],
+    "Cobertura dos gastos de financiamento": [12627916,	12624758,	12618879,	12613869,	12618635,	12607564,	12599694,	12596289,	12616500,	12589573,	12613122,
+                                              	12627610,	12615667,	12629056,	12604238,	12610594,	12600124,  12597395],
+    "Financiamentos obtidos em percentagem do ativo": [12592073,	12604236,	12630595,	12615871,	12610253,	12598075,	12625695,	12612138,	12603776,	12612496,	12618323,
+                                                       	12619734,	12619535,	12610439,	12591948,	12588993,	12618042,	12595182],
 
-    "Financiamentos obtidos em percentagem do ativo": [],
+    "Margem EBITDA em percentagem dos rendimentos": [12601535,	12591161,	12613049,	12591983,	12618427,	12593877,	12591794,	12609944,	12613218,
+                                                     	12622594,	12624993,	12596776,	12592653,	12627856,	12593528,	12627284,	12615323,	12597996],
 
-    "Margem EBITDA em percentagem dos rendimentos": [],
+    "Rácio dos financiamentos obtidos sobre EBITDA": [12608106,	12589961,	12588834,	12628753,	12628663,	12609203,	12594493,	12613764,	12594217,	12630347,
+                                                      	12596475,	12591893,	12626676,	12627002,	12625012,	12597355,	12593259,	12607269],
 
-    "Rácio dos financiamentos obtidos sobre EBITDA": [],
+    "Rendibilidade dos capitais próprios": [12593458,	12621466,	12598531,	12587522,	12608870,	12621694,	12623091,	12629143,	12620298,	12602212,	12596942,
+                                            	12624854,   12620546,	12623670,	12589243,	12615934,	12609418,	12606413],
 
-    "Rendibilidade dos capitais próprios": [],
+    "Margem líquida em percentagem dos rendimentos": [12604733,	12619512,	12600866,	12594431,	12596294,	12596841,	12613393,	12600766,	12623143,
+                                                      	12594578,	12597003,	12629935,	12622081,	12588208,	12604899,	12625771,	12609173,	12590943],
 
-    "Margem líquida em percentagem dos rendimentos": [],
+    "Capital próprio em percentagem do ativo": [12632364,	12632407,	12632106,	12632381,	12632222,	12632108,	12632483,	12632368,
+                                                         	12632317,	12632459,	12632306,	12632489,	12632174,	12632162,	12632424,	12632378,	12632344,	12632294],
 
-    "Capital próprio em percentagem do ativo": [],
+    "Margem bruta em percentagem dos rendimentos": [12625659,	12620753,   12623294,	12624916,	12598345,	12615278,	12605684,	12611992,	12622978,	12629077,	12607505,
+                                                    	12598962,	12625780,	12609673,	12613706,	12616702,	12587557,	12629796],
 
-    "Margem bruta em percentagem dos rendimentos": [],
+    "Margem EBIT em percentagem dos rendimentos": [	12623186,	12599479,	12599008,	12599575,	12616666,	12590362,	12613032,	12600355,	12600860,	12630391,
+                                                   	12591093,	12613343,	12608357,	12608278,	12605279,	12614137,	12611497,	12602801],
 
-    "Margem EBIT em percentagem dos rendimentos": [],
+    "EBITDA em percentagem do volume de negócios": [12595707,	12630030,	12607218,	12621570,	12625502,	12589370,	12598383,	12624250,	12593289,	12601285,
+                                                    	12590289,	12619480,	12605798,	12627586,	12622853,	12597027,	12604033,	12608736],
 
-    "EBITDA em percentagem do volume de negócios": [],
+    "Pressão financeira (Gastos de financiamento/EBITDA)": [12623864,	12617007,	12596200,	12607274,	12599533,	12606530,	12627526,	12616671,	12609923,	12613355,
+                                                            	12627159,	12587463,	12595958,	12627825,	12614342,	12596969,	12599691,	12603330],
 
-    "Pressão financeira (Gastos de financiamento/EBITDA)": [] ,
-
-    "Liquidez geral": []
+    "Liquidez geral": [12616239,	12618620,	12608150,	12607039,	12621163,	12615316,	12599318,	12589008,	12607185,	12590640,	12593894,
+                       	12611675,	12630527,	12602839,	12600451,	12607517,	12626322,	12593334]
                           }
 
 ####################################################################
@@ -482,24 +516,24 @@ large_all_columns = ['Date',
        'Current ratio-Large-%']
 
 all_companies_all_columns = ['Date', 
-       'Capital ratio-%',
-       'Financial debt (% liabilities)',
-       'Cost of financial debt-%',
-       'GVA (% output)',
-       'Return on assets-%',
-       'EBITDA / invested capital-%',
-       'Financing expenses coverage ratio',
-       'Financial debt (% assets)',
-       'EBITDA margin (% income)',
-       'Financial debt over EBITDA',
-       'Return on equity-%',
-       'Net income (% income)',
-       'Equity (% assets)',
-       'Gross profit (% income)',
-       'EBIT margin (% income)',
-       'EBITDA (% turnover )',
-       'Financial pressure-%',
-       'Current ratio-%']
+       'Capital ratio-Corporations-%',
+       'Financial debt (% liabilities)-Corporations',
+       'Cost of financial debt-Corporations-%',
+       'GVA (% output)-Corporations',
+       'Return on assets-Corporations-%',
+       'EBITDA / invested capital-Corporations-%',
+       'Financing expenses coverage ratio-Corporations',
+       'Financial debt (% assets)-Corporations',
+       'EBITDA margin (% income)-Corporations',
+       'Financial debt over EBITDA-Corporations',
+       'Return on equity-Corporations-%',
+       'Net income (% income)-Corporations',
+       'Equity (% assets)-Corporations',
+       'Gross profit (% income)-Corporations',
+       'EBIT margin (% income)-Corporations',
+       'EBITDA (% turnover )-Corporations',
+       'Financial pressure-Corporations-%',
+       'Current ratio-Corporations-%']
 
 
 

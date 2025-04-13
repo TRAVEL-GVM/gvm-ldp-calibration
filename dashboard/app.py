@@ -41,23 +41,23 @@ def load_data(ttl=3600*24):
         df_euribors = extract_euribors(start_date) # monthly data (start of period)
 
         # LDPs data (Small companies)  
-        #df_small_ldp = get_ldp_data(SMALL_ENTREPRISE_MAP_INDICATORS_KEYS)
+        df_small_ldp = get_ldp_data(SMALL_ENTREPRISE_MAP_INDICATORS_KEYS)
         
         # LDPs data (Medium companies)
         df_medium_ldp = get_ldp_data(MEDIUM_ENTREPRISE_MAP_INDICATORS_KEYS)
         # LDPs data (Large companies)
         df_large_ldp = get_ldp_data(LARGE_ENTREPRISE_MAP_INDICATORS_KEYS)
         # LDPs data (All companies)
-        #df_all_ldp= get_ldp_data(ALL_ENTREPRISE_MAP_INDICATORS_KEYS)
+        df_all_ldp= get_ldp_data(ALL_ENTREPRISE_MAP_INDICATORS_KEYS)
 
-        return macro_ecb_data, df_unemployment, df_labour_prod, df_inflation, df_euribors, df_medium_ldp, df_large_ldp
+        return macro_ecb_data, df_unemployment, df_labour_prod, df_inflation, df_euribors, df_medium_ldp, df_large_ldp, df_small_ldp, df_all_ldp
     except Exception as e:
         st.error(f"Error loading data: {e}")
         return pd.DataFrame()  # Return empty dataframe if loading fails
 
 
 # Load the data from the web
-macro_ecb_data, df_unemployment, df_labour_prod, df_inflation, df_euribors, df_medium_ldp, df_large_ldp = load_data()
+macro_ecb_data, df_unemployment, df_labour_prod, df_inflation, df_euribors, df_medium_ldp, df_large_ldp, df_small_ldp, df_all_ldp = load_data()
 
 # create anual data
 def create_total_data(ldp):
@@ -113,18 +113,16 @@ company_type = st.selectbox(
 
 # Set file path based on company type
 if company_type == "All":
-    # fazer update para all
-    df_ldp = df_medium_ldp.copy()
+    df_ldp = df_all_ldp.copy()
     total_data = create_total_data(df_ldp)[0]
     macrodata_total = create_total_data(df_ldp)[1]
-    cols_sector = medium_all_columns
+    cols_sector = all_companies_all_columns
 
 elif company_type == "Small":
-    # fazer update para small
-    df_ldp = df_medium_ldp.copy()
+    df_ldp = df_small_ldp.copy()
     total_data = create_total_data(df_ldp)[0]
     macrodata_total = create_total_data(df_ldp)[1]
-    cols_sector = medium_all_columns
+    cols_sector = small_all_columns
 
 elif company_type == "Medium":
     df_ldp = df_medium_ldp.copy()
