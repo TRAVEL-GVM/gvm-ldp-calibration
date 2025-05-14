@@ -58,17 +58,17 @@ def load_data(ttl=3600*24):
 
 
 # Load the data from the web
-macro_ecb_data = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/macro_ecb_data.csv')
-df_unemployment = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/unemployment_rate.csv')
+macro_ecb_data = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/LDP/macro_ecb_data.csv')
+df_unemployment = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/LDP/unemployment_rate.csv')
 df_unemployment['Date'] = pd.to_datetime(df_unemployment['Date'], errors='coerce')
-df_labour_prod = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/labour_productivity.csv')
+df_labour_prod = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/LDP/labour_productivity.csv')
 df_labour_prod['Date'] = pd.to_datetime(df_labour_prod['Date'], errors='coerce')
-df_inflation = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/inflation_cpi_ma12.csv')
-df_euribors = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/euribors.csv')
-df_medium_ldp = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/medium_ldp.csv')
-df_large_ldp = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/large_ldp.csv')
-df_small_ldp = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/small_ldp.csv')
-df_all_ldp = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/all_ldp.csv')
+df_inflation = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/LDP/inflation_cpi_ma12.csv')
+df_euribors = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/LDP/euribors.csv')
+df_medium_ldp = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/LDP/medium_ldp.csv')
+df_large_ldp = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/LDP/large_ldp.csv')
+df_small_ldp = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/LDP/small_ldp.csv')
+df_all_ldp = pd.read_csv('https://raw.githubusercontent.com/TRAVEL-GVM/Data/main/Data/LDP/all_ldp.csv')
 
 
 # create anual data
