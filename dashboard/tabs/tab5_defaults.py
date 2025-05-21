@@ -254,7 +254,7 @@ def tab_defaults(defaults, df, df_macro, cols_sector):
 
                 interpretation = (
                     f"🔎 **Highest correlation at lag {best_lag}:** {best_corr:.2f}.<br>"
-                    f"{'🡺 ' + var1 + ' may lead ' + var2 if best_lag > 0 else '🡸 ' + var2 + ' may lead ' + var1 if best_lag < 0 else '⏸️ No temporal lead-lag detected. Theres is no evidence that one variable anticipates the other or the other following the other one in time.'}"
+                    f"{'🡺 ' + var1 + ' may lead to ' var2 + 'with ' + {best_lag} + ' months of antecipation' if best_lag > 0 else '🡸 ' + var2 + ' may lead ' + var1 if best_lag < 0 else '⏸️ No temporal lead-lag detected. Theres is no evidence that one variable anticipates the other or the other following the other one in time.'}"
                 )
 
                 # Criar gráfico em Plotly
@@ -264,6 +264,7 @@ def tab_defaults(defaults, df, df_macro, cols_sector):
                     title=f'Cross-Correlation between {var1} and {var2}',
                     xaxis_title='Lag',
                     yaxis_title='Correlation',
+                    yaxis=dict(range=[-1, 1]),
                     template='plotly_white'
                 )
 
