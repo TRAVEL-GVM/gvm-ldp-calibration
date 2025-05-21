@@ -90,7 +90,7 @@ def show_bpstat_tab(df, cols_sector):
         if normalize:
             df_normalized = df_filtered.copy()
             columns_to_normalize = [col for col in df_filtered.columns if col != "Date"]
-            df_normalized[columns_to_normalize] = (df_filtered[columns_to_normalize] - df_filtered[columns_to_normalize].mean()) / df_filtered[columns_to_normalize].std()
+            df_normalized[columns_to_normalize] = (df_filtered[columns_to_normalize] - df_filtered[columns_to_normalize].min()) / (df_filtered[columns_to_normalize].max() - df_filtered[columns_to_normalize].min())
         else:
             df_normalized = df_filtered
 
